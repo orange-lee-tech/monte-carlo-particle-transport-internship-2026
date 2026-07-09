@@ -59,7 +59,7 @@ Error Object: ()
 
 | Zone | Type | Material | Source Terms | 当前判断 |
 |---|---|---|---|---|
-| fluid | fluid | 待细查，预计为 water-liquid | 待确认 | 冷却水流体区域 |
+| fluid | fluid | water-liquid | 待确认是否存在其他附加设置 | 冷却水流体区域 |
 | solid | solid | steel | 未勾选 | 结构/冷却管或支撑相关固体区域 |
 | source | solid | copper | 已勾选 | 铜准直器主体或主要受热区 |
 | pbk | solid | aluminum | 未勾选 | 可能为屏蔽块/辅助结构，需结合几何命名确认 |
@@ -125,13 +125,13 @@ Creating empty surface.
 
 - 入口速度 `9 m/s` 与论文第 4 章边界条件中的冷却水流速一致。
 - 入口温度 `20 ℃` 与论文第 4 章边界条件中的冷却水入口温度一致。
+- `fluid` 区域材料为 `water-liquid`，对应冷却水流道。
 - `source` 铜区域的 UDF 体积热源对应论文中能量沉积热源进入热分析模型的关键环节。
 - `source` 区域最高温度约 `131 ℃`，与 Mechanical 导入温度载荷 3 对应。
 - 当前文件优先判断为论文 9 m/s 冷却水热分析工况。
 
 ## 11. 后续检查
 
-- 检查 `fluid` 区域材料是否为 `water-liquid`。
 - 检查 wall / interface 是否为合理的流固耦合换热边界。
 - 查找 UDF `ENERGY_FLUH` 的源码、编译库或相关输入数据。
 - 查看 Reports / Surface Integrals，提取出口温度、入口/出口压力、压降和壁面热流。
