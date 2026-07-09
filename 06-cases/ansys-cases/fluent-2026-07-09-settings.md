@@ -1,24 +1,21 @@
-# Fluent 设置初查记录（2026-07-09）
+# Fluent 设置与复现记录（2026-07-09）
 
 ## 1. 对象
 
 师姐 Ansys Workbench 文件包中的 A 系统 `Fluid Flow (Fluent)`。
 
-当前操作目标：读取已有 case/data，检查模型设置，不重新计算。
+阶段目标：读取已有 case/data，识别模型设置，核对已有结果，补齐 UDF 后完成短迭代复现。
 
 ## 2. 读取情况
 
-Fluent 读取已有文件时，出现过 journal 警告：
+Fluent 读取已有文件时，反复出现过如下 journal / report 设置警告：
 
 ```text
-Warning: An error or interrupt occurred while reading the journal file.
-Some commands may not have been completed.
-
 Error: state/object/set-state:Rules not found for object type path: /Report/RunInformationSettings
 Error Object: ()
 ```
 
-当前判断：该问题更像是 Fluent 恢复报告/运行信息设置时的 journal 兼容或旧环境残留问题。由于 Fluent 设置树、边界条件、材料、cell zone 和结果项均可展开，暂不认为其阻断 case/data 主体读取。
+当前判断：该问题更像是 Fluent 恢复报告/运行信息设置时的兼容或旧环境残留问题。判断 case/data 是否成功读入时，不以该红字为唯一依据，而以 `source` 区域最大温度能否恢复到约 `131 ℃` 为准。
 
 ## 3. General / Models
 
@@ -41,10 +38,12 @@ Error Object: ()
 
 ## 4. Materials
 
-| 类型 | 材料 |
-|---|---|
-| Fluid | `air`、`water-liquid` |
-| Solid | `aluminum`、`copper`、`steel` |
+| 材料 | 类型 | Density | Cp | Thermal Conductivity | Viscosity |
+|---|---|---:|---:|---:|---:|
+| water-liquid | fluid | 998.2 kg/m³ | 4182 J/(kg·K) | 0.6 W/(m·K) | 未完整读取 |
+| copper | solid | 8940 kg/m³ | 381 J/(kg·K) | 387.6 W/(m·K) | - |
+
+其余材料包括 `air`、`aluminum`、`steel`。
 
 ## 5. Boundary Conditions
 
@@ -53,20 +52,20 @@ Error Object: ()
 | inlet | velocity-inlet | 速度 9 m/s；入口温度 20 ℃；湍流强度 3.76%；水力直径 12 mm；初始表压 0 Pa |
 | outlet | outflow | Flow Rate Weighting = 1 |
 | interface | 多个 interface / mesh interface | 用于不同区域之间数据传递或流固/固固接触换热 |
-| wall | 存在 | 详细壁面设置待继续检查 |
+| wall | 存在 | 详细壁面设置后续需要按结构方案继续检查 |
 
 ## 6. Cell Zone Conditions
 
 | Zone | Type | Material | Source Terms | 当前判断 |
 |---|---|---|---|---|
-| fluid | fluid | water-liquid | 待确认是否存在其他附加设置 | 冷却水流体区域 |
+| fluid | fluid | water-liquid | 未作为热源区 | 冷却水流体区域 |
 | solid | solid | steel | 未勾选 | 结构/冷却管或支撑相关固体区域 |
 | source | solid | copper | 已勾选 | 铜准直器主体或主要受热区 |
 | pbk | solid | aluminum | 未勾选 | 可能为屏蔽块/辅助结构，需结合几何命名确认 |
 
-## 7. source 区域能量源项
+## 7. UDF 热源项
 
-`source` 区域中已确认存在一个能量源项：
+`source` 区域中确认存在能量体热源项：
 
 | 项目 | 内容 |
 |---|---|
@@ -75,23 +74,50 @@ Error Object: ()
 | Material | copper |
 | Number of Energy sources | 1 |
 | 能量源项单位 | W/m³ |
-| Energy source | `udf ENERGY_FLUH::libudf1` |
+| 原 case 中观察到的 UDF | `ENERGY_FLUH::libudf1` / 后续报错与加载中出现 `ENERGY_PIAN::libudf1` |
+| 后续有效函数 | `ENERGY_PIAN` |
 
-当前判断：该热源不是简单常数，而是通过 UDF 加载的体积热源，命名为 `ENERGY_FLUH`，库名为 `libudf1`。后续需要查找该 UDF 源码或相关输入数据。
+### 7.1 UDF 问题与解决
+
+短迭代初期出现过：
+
+```text
+Error: chip-exec: function "ENERGY_PIAN::libudf1" not found.
+```
+
+控制台还出现过原始 UDF 路径信息：
+
+```text
+/LustreData5/home/shuaiwenwen/sww/heat_source_matrix_32.c
+```
+
+说明原始算例依赖师姐环境中的 UDF 源码或编译库。后续师姐补充了：
+
+```text
+heat_source_matrix_0_1e6.c
+pro.inp
+```
+
+将其放入 Fluent 工作目录，并在 Fluent Launcher 中勾选 UDF 编译环境后，Fluent 成功识别并加载：
+
+```text
+Found "libudf1" library
+Opening library ...
+ENERGY_PIAN
+Done.
+```
+
+补齐 UDF 后，`ENERGY_PIAN::libudf1 not found` 报错消失。
 
 ## 8. 温度结果核对
 
-使用 Fluent：
+使用 Fluent 控制台或 `Reports → Volume Integrals` 对 `source` cell zone 计算 `Temperature → Static Temperature` 的最大值与最小值。
 
-```text
-Reports → Volume Integrals
-```
-
-对 `source` cell zone 计算 `Temperature → Static Temperature` 的最大值与最小值，得到：
-
-| 区域 | 变量 | 最大值 | 最小值 | 备注 |
-|---|---|---:|---:|---|
-| source | Static Temperature | 131.0263 ℃ | 35.76516 ℃ | 通过 Volume Integrals 读取，不依赖失效 contour surface |
+| 状态 | 区域 | 变量 | 最大值 | 最小值 | 备注 |
+|---|---|---|---:|---:|---|
+| 读取已有 data | source | Static Temperature | 131.0263 ℃ / 131.02633 ℃ | 35.76516 ℃ | 与 Mechanical 导入温度载荷 3 对应 |
+| UDF 缺失时继续迭代后 | source | Static Temperature | 约 26.49236 ℃ | 未记录 | 热源失效，不作为物理结果 |
+| 补齐 UDF 后 10 步短迭代 | source | Static Temperature | 132.40909 ℃ | 未记录 | 控制台无 UDF 报错，短迭代复现通过 |
 
 该结果与 Mechanical 中 `Imported Body Temperature 3` 的 CFD 载荷摘要高度一致：
 
@@ -102,20 +128,16 @@ Reports → Volume Integrals
 
 当前判断：`Imported Body Temperature 3` 基本可确认为 Fluent 中 `source` 铜热源区温度场映射到 Mechanical 后的温度载荷。
 
-## 9. 冷却水温升
+## 9. 冷却水侧结果
 
-使用 Fluent：
+使用 `Surface Integrals` 对入口与出口 surface 计算温度、压力、质量流量和速度。
 
-```text
-Reports → Surface Integrals
-```
-
-对入口与出口 surface 计算 `Temperature → Static Temperature` 的面积加权平均值，得到：
-
-| Surface | Report Type | Variable | 数值 |
-|---|---|---|---:|
-| inlet | Area-Weighted Average | Static Temperature | 19.99999 ℃ |
-| outlet | Area-Weighted Average | Static Temperature | 20.97516 ℃ |
+| 项目 | inlet | outlet | 备注 |
+|---|---:|---:|---|
+| Area-Weighted Average Static Temperature | 19.99999 ℃ | 20.97516 ℃ | 温升 0.97517 ℃ |
+| Area-Weighted Average Static Pressure | 46258.35 Pa | -37528.33 Pa | 静压差约 83.79 kPa |
+| Mass Flow Rate | 7.966878 kg/s | -7.966878 kg/s | 出口负号来自面法向方向 |
+| Area-Weighted Average Velocity Magnitude | 9 m/s | 9.26229 m/s | 与入口边界一致 |
 
 冷却水温升：
 
@@ -123,35 +145,63 @@ Reports → Surface Integrals
 ΔT = 20.97516 - 19.99999 = 0.97517 ℃
 ```
 
-当前判断：在 9 m/s 冷却水工况下，冷却水通过流道后的面积平均温升约为 `0.975 ℃`。
-
-## 10. 冷却水压降
-
-使用 Fluent：
+按模型中 `water-liquid` 的 `Cp = 4182 J/(kg·K)` 估算冷却水带走热量：
 
 ```text
-Reports → Surface Integrals
+Q = m_dot * cp * ΔT
+  = 7.966878 * 4182 * 0.97517
+  ≈ 32.48 kW
 ```
 
-对入口与出口 surface 计算 `Pressure → Static Pressure` 的面积加权平均值，得到：
-
-| Surface | Report Type | Variable | 数值 |
-|---|---|---|---:|
-| inlet | Area-Weighted Average | Static Pressure | 46258.35 Pa |
-| outlet | Area-Weighted Average | Static Pressure | -37528.33 Pa |
+当前判断：该水侧能量闭合结果与 32 kW 工况高度一致。
 
 压降按入口平均静压减出口平均静压计算：
 
 ```text
-Δp = p_inlet - p_outlet
-   = 46258.35 - (-37528.33)
+Δp = 46258.35 - (-37528.33)
    = 83786.68 Pa
    ≈ 83.79 kPa
 ```
 
-注意：当前出口边界类型为 `outflow`，不是 `pressure-outlet`。因此该压降可作为当前已收敛流场中的入口/出口静压差记录，但后续若用于泵选型或论文严谨对比，应确认压力参考位置、边界类型和是否应使用总压/静压。
+注意：当前出口边界类型为 `outflow`，不是 `pressure-outlet`。该压降可作为当前结果场中的入口/出口静压差记录；若用于泵选型或论文严谨对比，应确认压力参考位置、边界类型和静压/总压口径。
 
-## 11. 后处理对象问题
+## 10. 体积积分补充结果
+
+| 区域 | 项目 | 数值 |
+|---|---|---:|
+| source | Volume | 0.006997188 m³ |
+| source | Volume-Weighted Average Static Temperature | 61.03741 ℃ |
+| fluid | Maximum Static Temperature | 23.93453 ℃ |
+| fluid | Volume-Weighted Average Static Temperature | 20.57065 ℃ |
+
+尝试查找 `Energy Source` 体积积分时，未在 Volume Integrals 可选变量中找到直接可用项。
+
+## 11. 残差与迭代设置
+
+残差监视器中各方程收敛判据均设置为：
+
+```text
+continuity：1e-06
+x-velocity：1e-06
+y-velocity：1e-06
+z-velocity：1e-06
+energy：1e-06
+k：1e-06
+epsilon：1e-06
+```
+
+运行计算面板曾显示：
+
+```text
+迭代次数：500
+报告间隔：1
+Profile 数据更新间隔：1
+伪瞬态设置：Automatic
+```
+
+复现测试时将迭代次数改为 10，完成短迭代后控制台无 UDF 函数缺失报错。
+
+## 12. 后处理对象问题
 
 尝试使用已有 `contour-1` / `contour-2` 时，Fluent 提示部分 surface id 已失效：
 
@@ -168,22 +218,38 @@ zone-surface: cannot create surface from sliding interface zone.
 Creating empty surface.
 ```
 
-当前处理策略：不依赖旧 contour 对象；优先使用 Volume Integrals / Surface Integrals 获取数值结果，后续如需云图则重新选择有效 wall 或创建新的切面。
+当前处理策略：不依赖旧 contour 对象；优先使用 Volume Integrals / Surface Integrals 或控制台 TUI 获取数值结果，后续如需云图则重新选择有效 wall 或创建新的切面。
 
-## 12. 与论文的初步对应
+## 13. 与论文/任务的对应
 
-- 入口速度 `9 m/s` 与论文第 4 章边界条件中的冷却水流速一致。
-- 入口温度 `20 ℃` 与论文第 4 章边界条件中的冷却水入口温度一致。
-- `fluid` 区域材料为 `water-liquid`，对应冷却水流道。
-- `source` 铜区域的 UDF 体积热源对应论文中能量沉积热源进入热分析模型的关键环节。
-- `source` 区域最高温度约 `131 ℃`，与 Mechanical 导入温度载荷 3 对应。
-- 出口面积平均温度约 `20.975 ℃`，冷却水温升约 `0.975 ℃`。
-- 入口/出口面积平均静压差约 `83.79 kPa`。
-- 当前文件优先判断为论文 9 m/s 冷却水热分析工况。
+- 当前工况应为正常工况，不是偏移工况；判断依据为入口速度 9 m/s、入口温度 20 ℃、32 kW 热源文件/结果，以及未观察到 offset 命名或偏移边界设置。
+- 但 UDF 内部热源矩阵是否完全等同于正常工况，需要结合 `heat_source_matrix_0_1e6.c` 和 `pro.inp` 内容进一步确认。
+- 当前文件与论文第 4 章 9 m/s 冷却水热分析工况高度对应。
+- Fluent 到 Mechanical 的主链路为：
 
-## 13. 后续检查
+```text
+UDF ENERGY_PIAN 体积热源
+        ↓
+Fluent source 铜区域温度场
+        ↓
+SYS-1.1 (1).dat
+        ↓
+Mechanical Imported Body Temperature 3
+        ↓
+Static Structural
+        ↓
+Equivalent Stress = 126.82 MPa
+Total Deformation = 0.17117 mm
+```
 
-- 检查 wall / interface 是否为合理的流固耦合换热边界。
-- 查找 UDF `ENERGY_FLUH` 的源码、编译库或相关输入数据。
-- 查看 Reports / Surface Integrals，提取壁面热流。
-- 若能获得质量流量，可用 `Q = m_dot * cp * ΔT` 估算冷却水带走热量，并与 UDF 总热源功率核对。
+## 14. 阶段结论
+
+本阶段已通过老师验收。可表述为：
+
+```text
+已完成师姐 Fluent-Mechanical 文件包的读取、关键参数识别、已有结果核对，并在补齐 UDF 源码/输入文件后完成短迭代复现。
+```
+
+不宜夸大为“完整复现全部论文数据”，因为完整复现还应包括长步数收敛、重新导入 Mechanical 并复核应力/变形等。
+
+后续工作不再沿此算例继续长算，而是转入缪子束流踢坏区 / 高功率准直吸收结构的热工设计、文献阅读与热应力计算。
