@@ -125,7 +125,33 @@ Reports → Surface Integrals
 
 当前判断：在 9 m/s 冷却水工况下，冷却水通过流道后的面积平均温升约为 `0.975 ℃`。
 
-## 10. 后处理对象问题
+## 10. 冷却水压降
+
+使用 Fluent：
+
+```text
+Reports → Surface Integrals
+```
+
+对入口与出口 surface 计算 `Pressure → Static Pressure` 的面积加权平均值，得到：
+
+| Surface | Report Type | Variable | 数值 |
+|---|---|---|---:|
+| inlet | Area-Weighted Average | Static Pressure | 46258.35 Pa |
+| outlet | Area-Weighted Average | Static Pressure | -37528.33 Pa |
+
+压降按入口平均静压减出口平均静压计算：
+
+```text
+Δp = p_inlet - p_outlet
+   = 46258.35 - (-37528.33)
+   = 83786.68 Pa
+   ≈ 83.79 kPa
+```
+
+注意：当前出口边界类型为 `outflow`，不是 `pressure-outlet`。因此该压降可作为当前已收敛流场中的入口/出口静压差记录，但后续若用于泵选型或论文严谨对比，应确认压力参考位置、边界类型和是否应使用总压/静压。
+
+## 11. 后处理对象问题
 
 尝试使用已有 `contour-1` / `contour-2` 时，Fluent 提示部分 surface id 已失效：
 
@@ -144,7 +170,7 @@ Creating empty surface.
 
 当前处理策略：不依赖旧 contour 对象；优先使用 Volume Integrals / Surface Integrals 获取数值结果，后续如需云图则重新选择有效 wall 或创建新的切面。
 
-## 11. 与论文的初步对应
+## 12. 与论文的初步对应
 
 - 入口速度 `9 m/s` 与论文第 4 章边界条件中的冷却水流速一致。
 - 入口温度 `20 ℃` 与论文第 4 章边界条件中的冷却水入口温度一致。
@@ -152,11 +178,12 @@ Creating empty surface.
 - `source` 铜区域的 UDF 体积热源对应论文中能量沉积热源进入热分析模型的关键环节。
 - `source` 区域最高温度约 `131 ℃`，与 Mechanical 导入温度载荷 3 对应。
 - 出口面积平均温度约 `20.975 ℃`，冷却水温升约 `0.975 ℃`。
+- 入口/出口面积平均静压差约 `83.79 kPa`。
 - 当前文件优先判断为论文 9 m/s 冷却水热分析工况。
 
-## 12. 后续检查
+## 13. 后续检查
 
 - 检查 wall / interface 是否为合理的流固耦合换热边界。
 - 查找 UDF `ENERGY_FLUH` 的源码、编译库或相关输入数据。
-- 查看 Reports / Surface Integrals，提取入口/出口压力、压降和壁面热流。
+- 查看 Reports / Surface Integrals，提取壁面热流。
 - 若能获得质量流量，可用 `Q = m_dot * cp * ΔT` 估算冷却水带走热量，并与 UDF 总热源功率核对。
