@@ -34,18 +34,20 @@
 
 | 编号 | 资料 | 状态 | 当前用途 |
 |---|---|---|---|
-| LIT-001 | 帅文文《CiADS 缪子源靶后高功率准直器设计》 | 已上传 | 现有方案、热结构分析、偏移工况、机器保护的直接基线 |
-| LIT-002 | PSI 2025 IMPACT Technical Design Report, Volume HIMB | 已上传 | PSI 靶后准直器、功率沉积、冷却、监测和机器保护参考 |
+| LIT-001 | 帅文文《CiADS 缪子源靶后高功率准直器设计》 | 已上传，待形成标准单篇笔记 | 现有方案、热结构分析、偏移工况、机器保护的直接基线 |
+| LIT-002 | PSI 2025 IMPACT Technical Design Report, Volume HIMB | 已上传，已建重点页码地图 | PSI 靶后准直器、功率沉积、冷却、监测和机器保护参考 |
+| LIT-003 | PSI《New Design of a Collimator System at the PSI Proton Accelerator》 | 已完成单篇笔记 | 孔径优化、两级功率分配、制造态材料与偏转敏感性 |
+| LIT-004 | 《CSNS/RCS次级准直器吸收体的冷却设计》 | 已完成单篇笔记 | 冷却方案选择、活化空气/水、真空运动结构和温控逻辑 |
 | TREE-001 | 文献文件夹目录树 | 已上传 | 后续上传顺序与专题文献筛选依据 |
 
-## 4. 第一批待上传文献
+## 4. 第一批文献进度
 
-按优先级上传，不需要一次上传整个文件夹：
-
-1. `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf`
-2. `CSNS_RCS次级准直器吸收体的冷却设计.pdf`
-3. `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf`
-4. `2023Design and Development of the 200 kW Beam Dump_2-11.pdf`
+| 顺序 | 文献 | 状态 |
+|---:|---|---|
+| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | 已完成单篇笔记 |
+| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | 已完成单篇笔记 |
+| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | 下一篇待上传 |
+| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | 待上传 |
 
 第二批候选文献暂不上传，待第一批完成页码地图和专题缺口分析后再决定。
 
