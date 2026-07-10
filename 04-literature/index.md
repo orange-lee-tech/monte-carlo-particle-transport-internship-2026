@@ -24,41 +24,48 @@
 | LIT-003 | PSI：*New Design of a Collimator System at the PSI Proton Accelerator* | `D:\BaiduNetdiskDownload\文献\others\` | `PSI` `collimator` `beam-loss` `power-deposition` `thermal` `stress` `material` `optimization` `machine-protection` | 已纳入专题综合 | PDF第1–5页；重点为第2页图5、第4页图8–10和表1、第5页表2 | `04-literature/notes/LIT-003-psi-new-collimator-system.md` |
 | LIT-004 | 余洁冰等：《CSNS/RCS次级准直器吸收体的冷却设计》 | `D:\BaiduNetdiskDownload\文献\CSNS\` | `CSNS` `collimator` `absorber` `cooling` `thermal` `activation` `radiation` `machine-protection` `maintenance` | 已纳入专题综合 | PDF第1–4页；重点为第1页图2、第2页图3–4、第3页图5、第4页图6–7 | `04-literature/notes/LIT-004-csns-secondary-collimator-cooling.md` |
 | LIT-005 | PSI：*A Simulation Based Thermal Analysis of a New Current Monitor at PSI Proton Accelerator* | `D:\BaiduNetdiskDownload\文献\Cern\` | `PSI` `current-monitor` `thermal` `cooling` `CFD-validation` `power-deposition` `machine-protection` | 已纳入专题综合 | PDF第2–4页；重点为第3页图2–3、第4页图4–5及断水分析 | `04-literature/notes/LIT-005-psi-current-monitor-thermal-validation.md` |
+| LIT-006 | 贾欢等：*Design and Development of the 200-kW Beam Dump* | `D:\BaiduNetdiskDownload\文献\` | `beam-dump` `absorber` `power-deposition` `thermal` `cooling` `stress` `deformation` `material` `activation` `maintenance` `commissioning` | 已纳入专题综合 | PDF第3–9页；重点为图5–8、图13–15及热结构和运行参数 | `04-literature/notes/LIT-006-cafe-200kw-beam-dump.md` |
 | TREE-001 | 用户文献文件夹目录树 | `D:\BaiduNetdiskDownload\文献\` | `inventory` | 已登记 | 用于后续选文献 | 本文件下方候选清单 |
 
 ## 专题综合
 
 | 专题 | 关联文献 | 路径 |
 |---|---|---|
-| 高功率束流部件热设计的三种主导矛盾 | LIT-003、LIT-004、LIT-005 | `04-literature/synthesis/thermal-design-methods-psi-csns.md` |
+| 高功率束流部件热设计的四条工程主线 | LIT-003、LIT-004、LIT-005、LIT-006 | `04-literature/synthesis/thermal-design-methods-psi-csns.md` |
 
 ## 第一批上传队列
 
+| 优先级 | 文件名 | 所在文件夹 | 状态 |
+|---:|---|---|---|
+| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | `D:\BaiduNetdiskDownload\文献\others\` | 已完成并纳入专题综合 |
+| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | `D:\BaiduNetdiskDownload\文献\CSNS\` | 已完成并纳入专题综合 |
+| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | `D:\BaiduNetdiskDownload\文献\Cern\` | 已完成；实际内容为PSI MHC5监测器 |
+| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | `D:\BaiduNetdiskDownload\文献\` | 已完成并纳入专题综合 |
+
+## 第二批当前优先队列
+
 | 优先级 | 文件名 | 所在文件夹 | 选择理由 | 状态 |
 |---:|---|---|---|---|
-| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | `D:\BaiduNetdiskDownload\文献\others\` | 与 PSI 靶后固定孔径准直器直接相关，可补足 TDR 的设计演化与优化依据 | 已完成并纳入专题综合 |
-| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | `D:\BaiduNetdiskDownload\文献\CSNS\` | 中文、工程针对性强，适合比较冷却结构、活化和控制方法 | 已完成并纳入专题综合 |
-| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | `D:\BaiduNetdiskDownload\文献\Cern\` | 实际内容为PSI MHC5电流监测器；用于CFD实验校核、流速拐点和断水保护 | 已完成并纳入专题综合 |
-| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | `D:\BaiduNetdiskDownload\文献\` | 用于建立高功率吸收体/beam dump 的工程尺度与瞬态风险参照 | 下一篇待上传 |
+| 1 | `LHC-TC-ER-0001-00-10.pdf` | `D:\BaiduNetdiskDownload\文献\Cern\` | 预计对应LHC准直器机械设计工程报告，用于补足真正的CERN结构、材料、驱动和热机械设计 | 下一篇待上传 |
+| 2 | `DOUBLE-WALL COLLIMATOR DESIGN OF THE SNS PROJECT.PDF` | `D:\BaiduNetdiskDownload\文献\SNS\` | 补充双层水冷准直器结构和高功率工程集成 | 待上传 |
+| 3 | `THE BEAM COLLIMATOR SYSTEM OF J-PARC RAPID CYCLING SYNCHROTRON.pdf` | `D:\BaiduNetdiskDownload\文献\J-PARC\` | 补充运行经验、可维护性和失效反馈 | 待上传 |
+| 4 | `Estimation of Radioactivity Produced in Cooling.pdf` | `D:\BaiduNetdiskDownload\文献\水冷\` | 专门补充冷却水活化和回路源项 | 待上传 |
 
-## 第二批候选池
-
-第一批精读完成前不急于上传。后续根据知识缺口再选：
+## 其他候选池
 
 - `Collimation and Beam Dumps.pdf` — `D:\BaiduNetdiskDownload\文献\`
-- `BEAM HALO AND SCRAPING.pdf` — `D:\BaiduNetdiskDownload\文献\` 或 `核心文献\`
-- `DOUBLE-WALL COLLIMATOR DESIGN OF THE SNS PROJECT.PDF` — `D:\BaiduNetdiskDownload\文献\SNS\`
-- `COLLIMATOR DESIGN FOR THE HEBT LINE OF THE SNS PROJECT.pdf` — `D:\BaiduNetdiskDownload\文献\SNS\`
-- `THE BEAM COLLIMATOR SYSTEM OF J-PARC RAPID CYCLING SYNCHROTRON.pdf` — `D:\BaiduNetdiskDownload\文献\J-PARC\`
+- `BEAM HALO AND SCRAPING.pdf` — `D:\BaiduNetdiskDownload\文献\`
+- `Conceptual design of an off-momentum collimation system in the CERN Super Proton Synchrotron for High-Luminosity Large Hadron Collider proton beams-PhysRevAccelBeams.24.093002.pdf` — `D:\BaiduNetdiskDownload\文献\Cern\`
+- `LHC COLLIMATOR CONTROLS FOR A SAFE LHC OPERATION.pdf` — `D:\BaiduNetdiskDownload\文献\Cern\`
+- `Simulations and measurements of beam loss patterns at the CERN Large Hadron Collider.pdf` — `D:\BaiduNetdiskDownload\文献\Cern\`
 - `2006-Design of the two-stage collimation system for CSNS_RCS.pdf` — `D:\BaiduNetdiskDownload\文献\CSNS\`
 - `Thermal analy...r in CSNS_RCS_Jie-Bing Yu.pdf` — `D:\BaiduNetdiskDownload\文献\CSNS\`
-- `Estimation of Radioactivity Produced in Cooling.pdf` — `D:\BaiduNetdiskDownload\文献\水冷\`
 
 ## 主题标签规范
 
 优先使用以下稳定标签：
 
-`collimator` `beam-dump` `absorber` `beam-halo` `beam-loss` `power-deposition` `thermal` `cooling` `stress` `deformation` `material` `machine-protection` `radiation` `activation` `maintenance` `optimization` `PSI` `CSNS` `CERN` `SNS` `J-PARC` `CiADS`
+`collimator` `beam-dump` `absorber` `beam-halo` `beam-loss` `power-deposition` `thermal` `cooling` `stress` `deformation` `material` `machine-protection` `radiation` `activation` `maintenance` `commissioning` `optimization` `PSI` `CSNS` `CERN` `SNS` `J-PARC` `CiADS`
 
 不得随意制造近义标签。例如统一使用 `machine-protection`，不要同时使用 `MPS`、`protection-system`、`beam-protection` 作为索引标签；这些词可保留在正文中。
 
