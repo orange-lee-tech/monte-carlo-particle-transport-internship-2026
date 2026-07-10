@@ -36,20 +36,22 @@
 |---|---|---|---|
 | LIT-001 | 帅文文《CiADS 缪子源靶后高功率准直器设计》 | 已上传，待形成标准单篇笔记 | 现有方案、热结构分析、偏移工况、机器保护的直接基线 |
 | LIT-002 | PSI 2025 IMPACT Technical Design Report, Volume HIMB | 已上传，已建重点页码地图 | PSI 靶后准直器、功率沉积、冷却、监测和机器保护参考 |
-| LIT-003 | PSI《New Design of a Collimator System at the PSI Proton Accelerator》 | 已完成单篇笔记 | 孔径优化、两级功率分配、制造态材料与偏转敏感性 |
-| LIT-004 | 《CSNS/RCS次级准直器吸收体的冷却设计》 | 已完成单篇笔记 | 冷却方案选择、活化空气/水、真空运动结构和温控逻辑 |
+| LIT-003 | PSI《New Design of a Collimator System at the PSI Proton Accelerator》 | 已完成并纳入专题综合 | 孔径优化、两级功率分配、制造态材料与偏转敏感性 |
+| LIT-004 | 《CSNS/RCS次级准直器吸收体的冷却设计》 | 已完成并纳入专题综合 | 冷却方案选择、活化空气/水、真空运动结构和温控逻辑 |
+| LIT-005 | PSI《A Simulation Based Thermal Analysis of a New Current Monitor》 | 已完成并纳入专题综合 | CFD实验校核、流速收益拐点、蒙特卡洛热源差异和断水被动安全 |
+| SYN-001 | 高功率束流部件热设计的三种主导矛盾 | 已建立 | 串联几何优化、工程边界和模型验证三条路线 |
 | TREE-001 | 文献文件夹目录树 | 已上传 | 后续上传顺序与专题文献筛选依据 |
 
 ## 4. 第一批文献进度
 
 | 顺序 | 文献 | 状态 |
 |---:|---|---|
-| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | 已完成单篇笔记 |
-| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | 已完成单篇笔记 |
-| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | 下一篇待上传 |
-| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | 待上传 |
+| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | 已完成单篇笔记并纳入专题综合 |
+| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | 已完成单篇笔记并纳入专题综合 |
+| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | 已完成；实际内容为PSI MHC5电流监测器，不是CERN准直器 |
+| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | 下一篇待上传 |
 
-第二批候选文献暂不上传，待第一批完成页码地图和专题缺口分析后再决定。
+第一批完成后，需要根据知识缺口决定第二批文献，当前已明确仍缺少真正的 CERN 准直器热应力案例。
 
 ## 5. 文献处理原则
 
