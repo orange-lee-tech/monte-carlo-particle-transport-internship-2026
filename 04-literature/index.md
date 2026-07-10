@@ -21,18 +21,25 @@
 |---|---|---|---|---|---|---|
 | LIT-001 | 帅文文：《CiADS 缪子源靶后高功率准直器设计》 | 已上传文件；本地原目录待登记 | `CiADS` `collimator` `thermal` `stress` `cooling` `machine-protection` | 已登记 | 第3章物理与结构设计；第4章热力学分析 | `04-literature/notes/LIT-001-shuai-wenwen-thesis.md` |
 | LIT-002 | PSI：《IMPACT Technical Design Report, Volume HIMB》 | 已上传文件；本地原目录待登记 | `PSI` `HIMB` `collimator` `power-deposition` `cooling` `machine-protection` | 已建页码地图 | 17–22；50–54；80–84；89–98 | `04-literature/notes/LIT-002-psi-impact-tdr.md` |
-| LIT-003 | PSI：*New Design of a Collimator System at the PSI Proton Accelerator* | `D:\BaiduNetdiskDownload\文献\others\` | `PSI` `collimator` `beam-loss` `power-deposition` `thermal` `stress` `material` `optimization` `machine-protection` | 已完成单篇笔记 | PDF第1–5页；重点为第2页图5、第4页图8–10和表1、第5页表2 | `04-literature/notes/LIT-003-psi-new-collimator-system.md` |
-| LIT-004 | 余洁冰等：《CSNS/RCS次级准直器吸收体的冷却设计》 | `D:\BaiduNetdiskDownload\文献\CSNS\` | `CSNS` `collimator` `absorber` `cooling` `thermal` `activation` `radiation` `machine-protection` `maintenance` | 已完成单篇笔记 | PDF第1–4页；重点为第1页图2、第2页图3–4、第3页图5、第4页图6–7 | `04-literature/notes/LIT-004-csns-secondary-collimator-cooling.md` |
+| LIT-003 | PSI：*New Design of a Collimator System at the PSI Proton Accelerator* | `D:\BaiduNetdiskDownload\文献\others\` | `PSI` `collimator` `beam-loss` `power-deposition` `thermal` `stress` `material` `optimization` `machine-protection` | 已纳入专题综合 | PDF第1–5页；重点为第2页图5、第4页图8–10和表1、第5页表2 | `04-literature/notes/LIT-003-psi-new-collimator-system.md` |
+| LIT-004 | 余洁冰等：《CSNS/RCS次级准直器吸收体的冷却设计》 | `D:\BaiduNetdiskDownload\文献\CSNS\` | `CSNS` `collimator` `absorber` `cooling` `thermal` `activation` `radiation` `machine-protection` `maintenance` | 已纳入专题综合 | PDF第1–4页；重点为第1页图2、第2页图3–4、第3页图5、第4页图6–7 | `04-literature/notes/LIT-004-csns-secondary-collimator-cooling.md` |
+| LIT-005 | PSI：*A Simulation Based Thermal Analysis of a New Current Monitor at PSI Proton Accelerator* | `D:\BaiduNetdiskDownload\文献\Cern\` | `PSI` `current-monitor` `thermal` `cooling` `CFD-validation` `power-deposition` `machine-protection` | 已纳入专题综合 | PDF第2–4页；重点为第3页图2–3、第4页图4–5及断水分析 | `04-literature/notes/LIT-005-psi-current-monitor-thermal-validation.md` |
 | TREE-001 | 用户文献文件夹目录树 | `D:\BaiduNetdiskDownload\文献\` | `inventory` | 已登记 | 用于后续选文献 | 本文件下方候选清单 |
+
+## 专题综合
+
+| 专题 | 关联文献 | 路径 |
+|---|---|---|
+| 高功率束流部件热设计的三种主导矛盾 | LIT-003、LIT-004、LIT-005 | `04-literature/synthesis/thermal-design-methods-psi-csns.md` |
 
 ## 第一批上传队列
 
 | 优先级 | 文件名 | 所在文件夹 | 选择理由 | 状态 |
 |---:|---|---|---|---|
-| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | `D:\BaiduNetdiskDownload\文献\others\` | 与 PSI 靶后固定孔径准直器直接相关，可补足 TDR 的设计演化与优化依据 | 已完成单篇笔记 |
-| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | `D:\BaiduNetdiskDownload\文献\CSNS\` | 中文、工程针对性强，适合比较冷却结构、流量、压降与热分析方法 | 已完成单篇笔记 |
-| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | `D:\BaiduNetdiskDownload\文献\Cern\` | 用于补充 CERN 类准直器热分析方法、边界条件与失效判断 | 待上传 |
-| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | `D:\BaiduNetdiskDownload\文献\` | 用于建立高功率吸收体/beam dump 的工程尺度与瞬态风险参照 | 待上传 |
+| 1 | `NEW DESIGN OF A COLLIMATOR SYSTEM AT THE PSI PROTON ACCELERATOR.pdf` | `D:\BaiduNetdiskDownload\文献\others\` | 与 PSI 靶后固定孔径准直器直接相关，可补足 TDR 的设计演化与优化依据 | 已完成并纳入专题综合 |
+| 2 | `CSNS_RCS次级准直器吸收体的冷却设计.pdf` | `D:\BaiduNetdiskDownload\文献\CSNS\` | 中文、工程针对性强，适合比较冷却结构、活化和控制方法 | 已完成并纳入专题综合 |
+| 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | `D:\BaiduNetdiskDownload\文献\Cern\` | 实际内容为PSI MHC5电流监测器；用于CFD实验校核、流速拐点和断水保护 | 已完成并纳入专题综合 |
+| 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | `D:\BaiduNetdiskDownload\文献\` | 用于建立高功率吸收体/beam dump 的工程尺度与瞬态风险参照 | 下一篇待上传 |
 
 ## 第二批候选池
 
