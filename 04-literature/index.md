@@ -28,6 +28,7 @@
 | LIT-007 | CERN：*Summary of calculations performed on TCTP collimators* | `D:\BaiduNetdiskDownload\文献\Cern\` | `CERN` `collimator` `thermal` `cooling` `stress` `deformation` `contact-conductance` `bolted-joint` `brazing` `creep` `bakeout` | 已纳入专题综合 | 文档第5–11、12–13、22–40页；重点为接触压力、热导、热挠度和烘烤稳定性 | `04-literature/notes/LIT-007-cern-tctp-thermomechanical-calculations.md` |
 | LIT-008 | SNS：*Double-Wall Collimator Design of the SNS Project* | `D:\BaiduNetdiskDownload\文献\SNS\` | `SNS` `collimator` `absorber` `double-wall` `cooling` `thermal-shock` `helium` `leak-detection` `Inconel-718` `machine-protection` | 已纳入专题综合 | PDF第1–3页；重点为第2页图2–3、第3页表1及图5–6 | `04-literature/notes/LIT-008-sns-double-wall-collimator.md` |
 | LIT-009 | J-PARC：*The Beam Collimator System of J-PARC Rapid Cycling Synchrotron* | `D:\BaiduNetdiskDownload\文献\J-PARC\` | `J-PARC` `collimator` `beam-loss` `commissioning` `residual-dose` `air-cooling` `remote-maintenance` `radiation-hardness` `acceptance-matching` `BLM` | 已纳入专题综合 | PDF第2–7页；重点为图3–11、冷却样机、BLM波形、接受度试验和残余剂量 | `04-literature/notes/LIT-009-jparc-rcs-collimator-commissioning.md` |
+| LIT-010 | J-PARC：*Estimation of Radioactivity Produced in Cooling Water at High-Intensity Proton Accelerator Facility* | `D:\BaiduNetdiskDownload\文献\水冷\` | `J-PARC` `cooling-water` `activation` `PHITS` `MCNPX` `tritium` `corrosion-products` `short-lived-nuclides` `maintenance-dose` `water-loop` | 已纳入专题综合 | PDF第3–5页；重点为表I、图4、表III和表IV | `04-literature/notes/LIT-010-jparc-cooling-water-activation.md` |
 | TREE-001 | 用户文献文件夹目录树 | `D:\BaiduNetdiskDownload\文献\` | `inventory` | 已登记 | 用于后续选文献 | 本文件下方候选清单 |
 
 ## 专题综合
@@ -37,6 +38,7 @@
 | 高功率束流部件热设计的六条工程主线 | LIT-003～LIT-008 | `04-literature/synthesis/thermal-design-methods-psi-csns.md` |
 | 准直与吸收结构冷却架构比较 | LIT-004、LIT-006、LIT-007、LIT-008 | `04-literature/synthesis/cooling-architecture-comparison.md` |
 | 束流吸收设备的调试、运行验证与维护闭环 | LIT-004、LIT-005、LIT-006、LIT-007、LIT-009 | `04-literature/synthesis/commissioning-maintenance-and-validation.md` |
+| 冷却水活化与回路工程设计 | LIT-004、LIT-006、LIT-008、LIT-009、LIT-010 | `04-literature/synthesis/cooling-water-activation-and-loop-design.md` |
 
 ## 第一批上传队列
 
@@ -47,16 +49,18 @@
 | 3 | `A_SIMULATION_BASED_THERMAL_ANALYSIS_OF_A_NEW_CURRE (1).pdf` | `D:\BaiduNetdiskDownload\文献\Cern\` | 已完成；实际内容为PSI MHC5监测器 |
 | 4 | `2023Design and Development of the 200 kW Beam Dump_2-11.pdf` | `D:\BaiduNetdiskDownload\文献\` | 已完成并纳入专题综合 |
 
-## 第二批当前优先队列
+## 第二批上传队列
 
-| 优先级 | 文件名 | 所在文件夹 | 选择理由 | 状态 |
-|---:|---|---|---|---|
-| 1 | `LHC-TC-ER-0001-00-10.pdf`／本次上传为`.docx`版 | `D:\BaiduNetdiskDownload\文献\Cern\` | 补充CERN准直器冷却、热机械、接触热导、螺栓预紧和烘烤稳定性 | 已完成并纳入专题综合 |
-| 2 | `DOUBLE-WALL COLLIMATOR DESIGN OF THE SNS PROJECT.PDF` | `D:\BaiduNetdiskDownload\文献\SNS\` | 补充双壁隔离、氦检漏、铜丝导热桥和整束脉冲容错 | 已完成并纳入专题综合 |
-| 3 | `THE BEAM COLLIMATOR SYSTEM OF J-PARC RAPID CYCLING SYNCHROTRON.pdf` | `D:\BaiduNetdiskDownload\文献\J-PARC\` | 补充运行经验、可维护性、接受度匹配和真实冷却验证 | 已完成并纳入专题综合 |
-| 4 | `Estimation of Radioactivity Produced in Cooling.pdf` | `D:\BaiduNetdiskDownload\文献\水冷\` | 专门补充冷却水活化和回路源项 | 下一篇待上传 |
+| 优先级 | 文件名 | 所在文件夹 | 状态 |
+|---:|---|---|---|
+| 1 | `LHC-TC-ER-0001-00-10.pdf`／本次上传为`.docx`版 | `D:\BaiduNetdiskDownload\文献\Cern\` | 已完成并纳入专题综合 |
+| 2 | `DOUBLE-WALL COLLIMATOR DESIGN OF THE SNS PROJECT.PDF` | `D:\BaiduNetdiskDownload\文献\SNS\` | 已完成并纳入专题综合 |
+| 3 | `THE BEAM COLLIMATOR SYSTEM OF J-PARC RAPID CYCLING SYNCHROTRON.pdf` | `D:\BaiduNetdiskDownload\文献\J-PARC\` | 已完成并纳入专题综合 |
+| 4 | `Estimation of Radioactivity Produced in Cooling.pdf` | `D:\BaiduNetdiskDownload\文献\水冷\` | 已完成并纳入专题综合 |
 
-## 其他候选池
+## 下一阶段候选池
+
+第二批已完成。后续优先任务不再盲目扩充文献，而是先完成LIT-001帅文文论文、LIT-002 PSI TDR的标准笔记，并形成参数对比表。候选文献包括：
 
 - `Collimation and Beam Dumps.pdf` — `D:\BaiduNetdiskDownload\文献\`
 - `BEAM HALO AND SCRAPING.pdf` — `D:\BaiduNetdiskDownload\文献\`
@@ -70,7 +74,7 @@
 
 优先使用以下稳定标签：
 
-`collimator` `beam-dump` `absorber` `beam-halo` `beam-loss` `power-deposition` `thermal` `cooling` `stress` `deformation` `material` `contact-conductance` `bolted-joint` `brazing` `creep` `bakeout` `double-wall` `helium` `leak-detection` `thermal-shock` `air-cooling` `acceptance-matching` `BLM` `machine-protection` `radiation` `activation` `residual-dose` `remote-maintenance` `maintenance` `commissioning` `optimization` `PSI` `CSNS` `CERN` `SNS` `J-PARC` `CiADS`
+`collimator` `beam-dump` `absorber` `beam-halo` `beam-loss` `power-deposition` `thermal` `cooling` `cooling-water` `stress` `deformation` `material` `contact-conductance` `bolted-joint` `brazing` `creep` `bakeout` `double-wall` `helium` `leak-detection` `thermal-shock` `air-cooling` `acceptance-matching` `BLM` `machine-protection` `radiation` `activation` `tritium` `corrosion-products` `short-lived-nuclides` `residual-dose` `remote-maintenance` `maintenance` `commissioning` `optimization` `PSI` `CSNS` `CERN` `SNS` `J-PARC` `CiADS`
 
 不得随意制造近义标签。例如统一使用 `machine-protection`，不要同时使用 `MPS`、`protection-system`、`beam-protection` 作为索引标签；这些词可保留在正文中。
 
