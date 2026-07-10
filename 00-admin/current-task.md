@@ -43,7 +43,9 @@
 | LIT-005 | PSI《A Simulation Based Thermal Analysis of a New Current Monitor》 | 已完成并纳入专题综合 | CFD实验校核、流速收益拐点、蒙特卡洛热源差异和断水被动安全 |
 | LIT-006 | CAFe《Design and Development of the 200-kW Beam Dump》 | 已完成并纳入专题综合 | 200 kW完整工程闭环、锥形摊功率、夹层水冷、远程维护和运行验证 |
 | LIT-007 | CERN《Summary of calculations performed on TCTP collimators》 | 已完成并纳入专题综合 | 接触热导、螺栓预紧、烘烤稳定性、冷却管承压和微米级热挠度 |
-| SYN-001 | 高功率束流部件热设计的五条工程主线 | 已更新 | 串联能量沉积、工程边界、模型验证、运行闭环和装配界面 |
+| LIT-008 | SNS《Double-Wall Collimator Design of the SNS Project》 | 已完成并纳入专题综合 | 双壁真空—水隔离、氦检漏、铜丝导热桥和两脉冲误束容错 |
+| SYN-001 | 高功率束流部件热设计的六条工程主线 | 已更新 | 串联热源、工程边界、验证、运行闭环、装配界面和安全隔离 |
+| SYN-002 | 准直与吸收结构冷却架构比较 | 已建立 | 比较远端导热、外置冷却管、夹层水冷和双壁隔离 |
 | TREE-001 | 文献文件夹目录树 | 已上传 | 后续上传顺序与专题文献筛选依据 |
 
 ## 4. 文献批次进度
@@ -53,23 +55,31 @@
 第二批进度：
 
 1. CERN TCTP热机械与装配报告：已完成；
-2. SNS双层水冷准直器：下一篇；
-3. J-PARC准直系统运行经验：待上传；
+2. SNS双壁准直器：已完成；
+3. J-PARC准直系统运行经验：下一篇；
 4. 冷却水活化：待上传。
 
 下一篇待上传：
 
-`D:\BaiduNetdiskDownload\文献\SNS\DOUBLE-WALL COLLIMATOR DESIGN OF THE SNS PROJECT.PDF`
+`D:\BaiduNetdiskDownload\文献\J-PARC\THE BEAM COLLIMATOR SYSTEM OF J-PARC RAPID CYCLING SYNCHROTRON.pdf`
 
 ## 5. 当前形成的设计认识
 
-当前文献链已形成五条可复用主线：
+当前文献链已形成六条可复用主线：
 
 1. 通过孔型、束斑和多级结构重塑能量沉积分布；
 2. 冷却方案要同时考虑真空、屏蔽、活化和维护；
 3. CFD和界面参数应通过可控试验校核；
 4. 高功率设备需要从仿真、制造到分级运行的工程闭环；
-5. 多材料装配中，接触热导、螺栓预紧和自重可能比峰值温度更早控制几何稳定性。
+5. 多材料装配中，接触热导、螺栓预紧和自重可能比峰值温度更早控制几何稳定性；
+6. 真空与水之间可通过双壁、监测夹层和独立导热桥建立安全冗余。
+
+冷却结构当前分为四类：
+
+- 远端导热冷却；
+- 外置冷却管；
+- 夹层近壁水冷；
+- 双壁隔离与检漏冷却。
 
 ## 6. 文献处理原则
 
