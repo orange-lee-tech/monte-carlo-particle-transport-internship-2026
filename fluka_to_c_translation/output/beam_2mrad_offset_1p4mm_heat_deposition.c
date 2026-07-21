@@ -1,4 +1,9 @@
-real heat_deposition[20][20][28] = {
+#include "beam_2mrad_offset_1p4mm_heat_deposition.h"
+
+const real beam_2mrad_offset_1p4mm_heat_deposition
+    [BEAM_2MRAD_OFFSET_1P4MM_HEAT_DEPOSITION_NX]
+    [BEAM_2MRAD_OFFSET_1P4MM_HEAT_DEPOSITION_NY]
+    [BEAM_2MRAD_OFFSET_1P4MM_HEAT_DEPOSITION_NZ] = {
   { /* X index 0 */
     { /* Y index 0 */
        0.000000e+00,  0.000000e+00,  0.000000e+00,  0.000000e+00,  0.000000e+00,  0.000000e+00, 

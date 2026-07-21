@@ -44,3 +44,22 @@ Examples:
 - The converter currently assumes a fixed 20×20×28 mesh.
 - Before Fluent loading, verify total deposited power and coordinate mapping.
 - Do not modify original FLUKA outputs during post-processing.
+
+# FLUKA 热沉积数据转换
+
+本目录保存 FLUKA 热沉积计分结果、转换脚本和生成的 C 三维数组。
+
+## 目录结构
+
+```text
+fluka_to_c_translation/
+├─ README.md
+├─ fluka_to_c_array_converter.py
+├─ input/
+│  ├─ beam_1mrad_offset_2mm.29
+│  └─ beam_2mrad_offset_1p4mm.29
+├─ output/
+│  ├─ beam_1mrad_offset_2mm_heat_deposition.c
+│  └─ beam_2mrad_offset_1p4mm_heat_deposition.c
+└─ udf/
+   └─ README.md
