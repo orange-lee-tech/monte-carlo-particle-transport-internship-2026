@@ -130,10 +130,29 @@ def convert_fluka_to_c_array_advanced(input_filename, output_filename, array_nam
     print(f"数组维度: [{nx}][{ny}][{nz}]")
     print(f"每行显示元素数量: {elements_per_line}")
 
-# 使用示例
+# 批量转换当前目录下所有 .29 文件
 if __name__ == "__main__":
-    input_file = "pro001_fort_0.25.29"
-    output_file = "heat_deposition_array_sf_2.5mm.c"
-    
-    # 可以调整每行显示的元素数量
-    convert_fluka_to_c_array_advanced(input_file, output_file, array_name="heat_deposition", elements_per_line=6)
+    import os
+
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+
+    for filename in os.listdir(current_dir):
+        if filename.endswith(".29"):
+
+            input_file = os.path.join(current_dir, filename)
+
+            output_file = os.path.join(
+                current_dir,
+                filename.replace(".29", ".c")
+            )
+
+            print("=" * 60)
+            print("输入文件:", input_file)
+            print("输出文件:", output_file)
+
+            convert_fluka_to_c_array_advanced(
+                input_file,
+                output_file,
+                array_name="heat_deposition",
+                elements_per_line=6
+            )
