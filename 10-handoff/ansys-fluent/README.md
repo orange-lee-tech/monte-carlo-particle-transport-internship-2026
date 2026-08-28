@@ -1,27 +1,34 @@
 # ANSYS / Fluent 工程交接包
 
-本目录是 2026 年暑期实习 ANSYS / Fluent 工作的正式交接入口。
+本目录是正式交接入口。交接方式已经从“知识说明”改为“**状态机 + 执行卡 + 验收关口**”。
 
-## 新人阅读顺序
+## 先读什么
 
-1. `ANSYS_Fluent_工程交接手册_2026.docx` — 正式 Word 交接版，优先阅读。
-2. `START_HERE.md` — 30 分钟进入状态。
-3. `ANSYS_HANDOFF.md` — 完整技术手册。
-4. `NEXT_STEPS_CHECKLIST.md` — 当前接续任务。
-5. `TUI_QUICK_REFERENCE.md` — Fluent Meshing TUI 快查。
-6. `PROGRAM_INDEX.md` — 精选程序与数据用途。
-7. `AI_COLLAB_GUIDE.md` — 与 AI 协作方法。
-8. `GITHUB_WORKFLOW.md` — 仓库与大型工程资产管理。
-9. `ASSET_MANIFEST.md` — 本交接包资产总表。
+1. `ANSYS_Fluent_工程交接手册_2026.docx` — 正式 Word 执行版。
+2. `START_HERE.md` — 10 分钟定位当前状态。
+3. `EXECUTION_RUNBOOK.md` — **下一位接手者实际照着做的操作手册**。
+4. `NEXT_STEPS_CHECKLIST.md` — B5 → A4 → Solver 三个 Gate。
+5. `ANSYS_HANDOFF.md` — 全量技术依据与历史结论。
+6. `TUI_QUICK_REFERENCE.md` — Fluent Meshing TUI 快查。
+7. `PROGRAM_INDEX.md` — 代码/数据用途和旧/新路线区别。
+8. `AI_COLLAB_GUIDE.md` — 与 AI 协作方式。
+9. `GITHUB_WORKFLOW.md` — 仓库管理。
 
-## 当前一句话状态
+## 先看清 A/B 两条线
 
-正式几何的 Share Topology 主导故障已通过 TUI + A/B 试验定位到局部管—主体接口；当前下一技术节点是重新识别长管 Face Zone、修复 Capping / Fluid Region，完成 Volume Mesh 后在新版 copper Cell Zone 上恢复既有 FLUKA → Fluent UDF 热源链。
+```text
+A线：新 FLUKA 数据导入
+fort.30 → 34.56M float32 → 5 mA → UDF
+A1–A3 已完成；A4 坐标映射等待 B 线
 
-## 交接原则
+B线：新模型导入
+CAD → Surface Mesh → Share → Capping → Region → Volume Mesh
+Share 主阻塞已突破；当前从 Capping / Region 继续
 
-- 先接上已有链路，再优化。
-- 先验证几何，再调网格。
-- 新网格必须重新识别 Zone，禁止照搬旧 ID。
-- Share Topology 不能代替 CAD 修穿模。
-- 一次只解决一个层级的问题。
+两线汇合：
+Volume Mesh → 新 copper Cell Zone → A4 → RAW30_ENERGY_SOURCE → 功率积分 → Solver
+```
+
+## 当前一句话
+
+**现在先完成 B5：重新识别长管端面 → Capping → Region → Volume Mesh；随后恢复 A4，而不是重新开发数据读取或继续 Share 参数试错。**
