@@ -16,6 +16,8 @@ ANSYS_HANDOFF.md
 NEXT_STEPS_CHECKLIST.md
 ```
 
+先完成 `START_HERE.md` 中的**资产预检 P0**；当前 GitHub 不包含全部大型运行资产，且新 RAW30 UDF C 源码仍需从原工作目录恢复。
+
 当前工程必须按 A/B 两线理解：
 
 ```text
