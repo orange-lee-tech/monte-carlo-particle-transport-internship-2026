@@ -6,7 +6,7 @@
 
 | 类别 | 文件 | 作用 |
 |---|---|---|
-| Word 快照 | `ANSYS_Fluent_工程交接手册_2026.docx` | 2026-08-28 交接版；未含 8/29 资产审计 P0，当前状态以 Markdown 为准 |
+| Word 快照 | `ANSYS_Fluent_工程交接手册_2026.docx` | 仓库审计前交接版；未含 8/29 新增资产预检 P0，当前状态以 Markdown 为准 |
 | 快速入口 | `START_HERE.md` | 10 分钟定位当前状态 |
 | 现场执行 | `EXECUTION_RUNBOOK.md` | 坐到工作机前直接照做 |
 | 全量交接 | `ANSYS_HANDOFF.md` | 技术依据、历史证据、操作细节 |
