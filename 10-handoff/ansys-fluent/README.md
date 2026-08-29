@@ -4,15 +4,15 @@
 
 ## 先读什么
 
-1. `ANSYS_Fluent_工程交接手册_2026.docx` — 正式 Word 执行版。
-2. `START_HERE.md` — 10 分钟定位当前状态。
-3. `EXECUTION_RUNBOOK.md` — **下一位接手者实际照着做的操作手册**。
-4. `NEXT_STEPS_CHECKLIST.md` — B5 → A4 → Solver 三个 Gate。
-5. `ANSYS_HANDOFF.md` — 全量技术依据与历史结论。
-6. `TUI_QUICK_REFERENCE.md` — Fluent Meshing TUI 快查。
-7. `PROGRAM_INDEX.md` — 代码/数据用途和旧/新路线区别。
-8. `AI_COLLAB_GUIDE.md` — 与 AI 协作方式。
-9. `GITHUB_WORKFLOW.md` — 仓库管理。
+1. `START_HERE.md` — 10 分钟定位当前状态与资产预检。
+2. `EXECUTION_RUNBOOK.md` — **下一位接手者实际照着做的操作手册**。
+3. `NEXT_STEPS_CHECKLIST.md` — P0 → B5 → A4 → Solver Gate。
+4. `ANSYS_HANDOFF.md` — 全量技术依据与历史结论。
+5. `TUI_QUICK_REFERENCE.md` — Fluent Meshing TUI 快查。
+6. `PROGRAM_INDEX.md` / `ASSET_MANIFEST.md` — 程序、数据与缺失资产状态。
+7. `AI_COLLAB_GUIDE.md` — 与 AI 协作方式。
+8. `GITHUB_WORKFLOW.md` — 仓库管理。
+9. `ANSYS_Fluent_工程交接手册_2026.docx` — 2026-08-28 形成的 Word 交接快照；便于阅读，但**未包含 2026-08-29 仓库资产审计新增的 P0 预检信息**，当前状态以 Markdown 为准。
 
 ## 先做资产预检
 
