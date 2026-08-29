@@ -2,6 +2,16 @@
 
 > 目标：接手者 10 分钟知道“现在在哪、下一步点什么、什么时候停”。
 
+## 0. 先确认资产真的在手边
+
+在打开 Fluent 前确认三项：
+
+- [ ] 当前 Share 后可继续的 CAD / Workbench / Fluent Meshing 工程检查点；
+- [ ] 原始 `target_4collimator001_fort.30`；
+- [ ] 原工作中使用的新 RAW30 UDF 源码（包含 `RAW30_ENERGY_SOURCE`）。
+
+当前 GitHub **不包含前两项大型资产，也未找到第三项 C 源码**。若缺任一项，先恢复资产，不要用旧 `.29` 或根据交接文字临时重写来替代。
+
 ## 1. 先看工程结构：A/B 两线，当前先推 B 线
 
 ```text
@@ -22,6 +32,7 @@ Volume Mesh → 新 copper Cell Zone → A4 坐标标定 → RAW30_ENERGY_SOURCE
 ## 2. 坐到工作机前，按这一串做
 
 ```text
+0. 完成上述资产预检
 1. 打开当前 Share 后 Fluent Meshing 状态
 2. /boundary/manage/list
 3. 逐个显示长管候选 Face Zone
