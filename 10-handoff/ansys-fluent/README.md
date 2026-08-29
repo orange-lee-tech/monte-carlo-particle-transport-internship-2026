@@ -12,7 +12,7 @@
 6. `PROGRAM_INDEX.md` / `ASSET_MANIFEST.md` — 程序、数据与缺失资产状态。
 7. `AI_COLLAB_GUIDE.md` — 与 AI 协作方式。
 8. `GITHUB_WORKFLOW.md` — 仓库管理。
-9. `ANSYS_Fluent_工程交接手册_2026.docx` — 2026-08-28 形成的 Word 交接快照；便于阅读，但**未包含 2026-08-29 仓库资产审计新增的 P0 预检信息**，当前状态以 Markdown 为准。
+9. `ANSYS_Fluent_工程交接手册_2026.docx` — 本次 2026-08-29 仓库审计前形成的 Word 交接快照；便于阅读，但**未包含 2026-08-29 仓库资产审计新增的 P0 预检信息**，当前状态以 Markdown 为准。
 
 ## 先做资产预检
 
