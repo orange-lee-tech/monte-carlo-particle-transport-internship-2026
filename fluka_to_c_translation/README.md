@@ -1,65 +1,50 @@
-# FLUKA to C Array Translation
+# FLUKA `.29` → C 数组回归基线
 
-## Purpose
+本目录保存实习中恢复并验证的**旧模型数据转换链**。它仍是可执行、可回归的代码资产，但不再代表新正式模型的数据路线。
 
-This directory contains the conversion chain from FLUKA scoring output (`.29`) to C language heat source arrays used by Fluent UDF.
-
-## Conversion chain
-
-FLUKA output (.29)
-
-→ Python converter
-
-→ C array (`heat_deposition[20][20][28]`)
-
-→ Fluent UDF heat source loading
-
-## Mesh definition
-
-The FLUKA scoring mesh is:
-
-- X: -10 cm ~ 10 cm, 20 bins, 1 cm/bin
-- Y: -10 cm ~ 10 cm, 20 bins, 1 cm/bin
-- Z: -14 cm ~ 14 cm, 28 bins, 1 cm/bin
-
-Array indexing follows:
-
-`A(ix,iy,iz)` → `heat_deposition[ix][iy][iz]`
-
-## Case naming convention
-
-Original filenames contained temporary path information from FLUKA calculation directories. They are retained only as historical references.
-
-Future maintained files should follow:
-
-`beam_<angle>_offset_<value>_<type>.<ext>`
-
-Examples:
-
-- `beam_1mrad_offset_2mm.29`
-- `beam_2mrad_offset_1p4mm.29`
-
-## Notes
-
-- The converter currently assumes a fixed 20×20×28 mesh.
-- Before Fluent loading, verify total deposited power and coordinate mapping.
-- Do not modify original FLUKA outputs during post-processing.
-
-# FLUKA 热沉积数据转换
-
-本目录保存 FLUKA 热沉积计分结果、转换脚本和生成的 C 三维数组。
-
-## 目录结构
+## 旧链
 
 ```text
-fluka_to_c_translation/
-├─ README.md
-├─ fluka_to_c_array_converter.py
-├─ input/
-│  ├─ beam_1mrad_offset_2mm.29
-│  └─ beam_2mrad_offset_1p4mm.29
-├─ output/
-│  ├─ beam_1mrad_offset_2mm_heat_deposition.c
-│  └─ beam_2mrad_offset_1p4mm_heat_deposition.c
-└─ udf/
-   └─ README.md
+FLUKA .29
+→ fluka_to_c_array_converter.py
+→ heat_deposition.c / .h
+→ Fluent UDF: ENERGY_PLAN
+→ 旧模型功率 / voxel-cell 映射回归
+```
+
+旧计分网格：
+
+- X：-10 ~ 10 cm，20 bins；
+- Y：-10 ~ 10 cm，20 bins；
+- Z：-14 ~ 14 cm，28 bins；
+- 共 20×20×28 = 11,200 个数据。
+
+## 当前正式数据路线
+
+新模型已改为：
+
+```text
+fort.30 原始 Fortran sequential binary
+→ 34,560,000 float32
+→ UDF static memory
+→ 5 mA 归一化
+→ RAW30_ENERGY_SOURCE
+```
+
+该新路线的状态、硬回归锚点与下一步不在本目录维护，统一查看：
+
+`10-handoff/ansys-fluent/PROGRAM_INDEX.md`
+
+## 目录内容
+
+- `input/`：两组旧 `.29` 输入；
+- `output/`：对应生成的 C / H 数组；
+- `udf/`：旧模型 coverage / 映射诊断代码及参考头文件；
+- `verification/`：旧 `.29 → C` 验证记录；
+- 根目录两个 Python 脚本：转换与独立验证。
+
+已删除无效 `.bak` 备份文件，Git 历史本身承担版本回溯功能。
+
+## 与交接包的关系
+
+`10-handoff/ansys-fluent/` 中保留了一份相同 SHA 的旧回归资产快照，目的是让交接包可自包含；本目录仍是旧链的规范代码位置。
