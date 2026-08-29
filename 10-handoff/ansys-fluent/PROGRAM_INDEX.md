@@ -22,6 +22,16 @@ target_4collimator001_fort.30
 
 **这才是新正式模型应恢复的热源路线。**
 
+### 仓库资产状态
+
+这条路线的**验证事实**已由日志和交接文档保存，但当前 GitHub 树中：
+
+- 没有 `target_4collimator001_fort.30`；
+- 没有找到实现 `RAW30_ENERGY_SOURCE` 的正式 C 源码；
+- 也没有当前可继续的 Workbench / Fluent Meshing 大型工程文件。
+
+因此，A4 前必须先从原工作机/工程存储恢复上述资产。尤其是 RAW30 UDF 源码，应优先找回原实现，而不是根据文档重新猜写。
+
 ## 2. 仓库内的旧回归链（方法基线）
 
 ### `programs/validated/fluka_to_c_array_converter.py`
