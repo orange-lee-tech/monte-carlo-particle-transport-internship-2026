@@ -28,7 +28,7 @@ B. 工程续接线
 - 技术路线总盘点：已完成；
 - 最终实习报告 Markdown：已完成并进入微调；
 - 最终答辩 PPT 信息架构：已建立，后续以多图少字方式制作；
-- ANSYS / Fluent 工程交接包：已建立并可执行。
+- ANSYS / Fluent 工程交接包：状态机、执行卡与验证锚点已建立；真正续接前必须通过 P0 资产预检。当前 GitHub 不保存正式大型工程/`fort.30`，且尚未找到新 `RAW30_ENERGY_SOURCE` UDF C 源码。
 
 ## 3. 技术闭环状态
 
@@ -72,3 +72,10 @@ B. 工程续接线
 4. `10-handoff/ansys-fluent/NEXT_STEPS_CHECKLIST.md`
 
 聊天用于即时协作，GitHub继续作为长期事实库。
+
+## 6. 交接资产审计（2026-08-29）
+
+- `10-handoff/ansys-fluent/` 已明确区分 GitHub 内资产、外部大型资产和缺失代码；
+- 旧 `.29` 回归资产在 `fluka_to_c_translation/` 与交接包中保留相同 SHA 快照，属于有意重复；
+- 新正式 CAD / Workbench / Fluent Meshing 检查点与 `target_4collimator001_fort.30` 属外部运行资产；
+- 新 RAW30 UDF C 源码当前未在仓库找到，若未来续接，应优先从原工作目录恢复，而不是根据文档重写后冒充原实现。
