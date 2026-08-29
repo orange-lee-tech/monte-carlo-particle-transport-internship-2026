@@ -1,79 +1,74 @@
 # 当前任务说明
 
-更新时间：2026-07-23
+更新时间：2026-08-29
 
 ## 1. 当前阶段
 
-工作已从“论文阅读和软件入门”进入“帅文文计算链工程继承与物理验证”阶段。
+现场生产实习已结束，仓库进入 **成果定稿 + 答辩准备 + 工程交接** 阶段。
 
-当前主线：
-
-```text
-帅文文论文与原始资料
-→ FLUKA .29热沉积数据
-→ Python转换为C数组.c/.h
-→ Fluent UDF坐标、单位和功率映射
-→ Fluent温度场
-→ Mechanical热应力
-→ 论文锚点工况回归
-→ 独立拓展
-```
-
-## 2. 已完成
-
-- 帅文文论文第3、4章主线精读与7份Zotero记录整理；
-- `.29 → .c/.h`转换程序重构；
-- 11200个热沉积数据的数量、顺序和逐点数值独立验证，结果PASS；
-- 第一版Fluent UDF编译、加载和source铜区挂接；
-- 第一版稳态Fluent温度场运行、保存和重启；
-- 体素覆盖率诊断UDF建立；
-- 文献目录合并和仓库编号收口。
-
-## 3. 当前验证重点
-
-1. 核实FLUKA输出单位和5 mA束流强度来源；
-2. 完成voxel—cell覆盖率诊断；
-3. 解释FLUKA参考功率与Fluent映射功率差异；
-4. 将正式`DEFINE_SOURCE`主程序纳入版本管理；
-5. 区分当前偏移工况与论文31.9 kW锚点工况；
-6. 重新建立Fluent—Mechanical温度和应力回归；
-7. 将同一流程复用于第二偏移工况。
-
-## 4. 当前资料状态
-
-| 资料 | 状态 | 位置 |
-|---|---|---|
-| 帅文文论文精读与继承矩阵 | 已完成整理，工程继承中 | `04-literature/deep-reading/LIT-001-shuai-wenwen-ciads-collimator/` |
-| 外部文献LIT-003—LIT-010 | 机器辅助笔记完成，用户尚未系统精读 | `04-literature/notes/` |
-| FLUKA输入和转换程序 | 已入库 | `fluka_to_c_translation/` |
-| 数据一致性验证 | PASS | `fluka_to_c_translation/verification/` |
-| Fluent/Mechanical接手记录 | 进行中 | `06-cases/ansys-cases/` |
-| 每日与周度记录 | 持续维护 | `01-daily-log/` |
-
-## 5. 文献安排
-
-当前不继续盲目扩充外部文献。
-
-合理顺序为：
+当前分成两条后续路线：
 
 ```text
-完成帅文文工作继承
-→ 形成可靠热工计算基线
-→ 精读PSI TDR
-→ 根据实际拓展问题选择CERN/SNS/J-PARC/CSNS文献
-→ 开展新结构、新工况或新方法
+A. 实习成果线
+最终报告 → PPT 素材整理 → 开学答辩
+
+B. 工程续接线
+10-handoff/ansys-fluent/
+→ B5 Capping / Region / Volume Mesh
+→ A4 CAD↔FLUKA 坐标标定
+→ RAW30_ENERGY_SOURCE
+→ 功率积分
+→ Solver
 ```
 
-外部文献的作用是同步方法、了解已有成果和预警风险，不直接提供当前设备设计参数。
+## 2. 实习成果状态
 
-## 6. 仓库读取顺序
+- 每日终版日志：已收口至 `2026-08-27.md`；
+- 周报体裁材料：7 篇日志型周报 + 1 篇特别周刊，共 8 篇；
+- 技术路线总盘点：已完成；
+- 最终实习报告 Markdown：已完成并进入微调；
+- 最终答辩 PPT 信息架构：已建立，后续以多图少字方式制作；
+- ANSYS / Fluent 工程交接包：已建立并可执行。
 
-开展重要工作前读取：
+## 3. 技术闭环状态
 
-1. `README.md`
-2. `WORKING_RULES.md`
-3. `00-admin/current-task.md`
-4. 对应工程模块README或验证记录
-5. 与问题直接相关的日志、代码和文献笔记
+| 模块 | 状态 |
+|---|---|
+| 旧 `.29 → C/UDF → Fluent` | 已闭环 |
+| 旧模型功率 / voxel-cell 映射诊断 | 已闭环 |
+| 新 `fort.30` 34.56M 数据读取 | 已闭环 |
+| 5 mA 归一化与 31.035 kW 全域积分 | 已闭环 |
+| 新 CAD 主故障定位 | 基本闭环 |
+| Share Topology | 删除问题管 A/B 后可实质继续 |
+| Capping / fluid Region / Volume Mesh | 未闭环 |
+| 新 Cell Zone 正式热源挂接 | 未完成 |
+| 新模型温度场 / Mechanical 热应力 | 未完成 |
+| DRPL-V 短期重复性 | 已验证，总体较好 |
+| DRPL-V 绝对准确度 / 凝露定量 / 厚度漂移解释 | 未闭环 |
 
-聊天作为即时工作区，GitHub作为长期事实库。
+## 4. 当前最重要的事实边界
+
+- 本人基于团队上游 FLUKA 粒子输运结果开展下游接口和热工工作，不将上游计算写成个人完成；
+- 新正式模型不能写成已经完成完整热—结构求解；
+- `.30.lis` 不能作为新正式数据源；
+- 新模型不得复用旧 `zone 10 = source`；
+- DRPL-V 不能写成已经完成绝对准确度校准或凝露影响定量；
+- 旧模型 46.800 / 38.178 / 37.243 kW 只作旧几何回归证据，不能直接套到新模型。
+
+## 5. 仓库读取顺序
+
+### 做最终报告 / 答辩
+
+1. `07-reports/final-internship-report.md`
+2. `07-reports/internship-content-review-by-technical-route.md`
+3. `08-presentation/final-internship-ppt-outline.md`
+4. 需要证据时回查周报和每日日志。
+
+### 继续工程计算
+
+1. `10-handoff/README.md`
+2. `10-handoff/ansys-fluent/START_HERE.md`
+3. `10-handoff/ansys-fluent/EXECUTION_RUNBOOK.md`
+4. `10-handoff/ansys-fluent/NEXT_STEPS_CHECKLIST.md`
+
+聊天用于即时协作，GitHub继续作为长期事实库。
