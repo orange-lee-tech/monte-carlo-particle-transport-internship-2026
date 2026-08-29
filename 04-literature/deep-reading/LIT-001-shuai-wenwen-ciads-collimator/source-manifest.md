@@ -40,9 +40,13 @@
 | 验证报告 | `fluka_to_c_translation/verification/beam_1mrad_offset_2mm_verification.md` | 保存PASS结果和功率修正 |
 | Fluent覆盖率诊断UDF | `fluka_to_c_translation/udf/beam_1mrad_offset_2mm_coverage_diagnostic.c` | 检查voxel—cell体积覆盖与功率恢复 |
 | Ansys接手记录 | `06-cases/ansys-cases/package-run-record.md` | Fluent/Mechanical模型、边界和结果记录 |
-| 近期日志 | `01-daily-log/2026-07-20.md`至`2026-07-22.md`，以及根目录`2026-7.23.md` | 工程继承过程证据 |
+| 工程日志 | `01-daily-log/2026-07-20.md`—`2026-07-27.md`，以及 `2026-08-13.md`—`2026-08-27.md` 中相关记录 | 旧链验证、新数据接口、新几何诊断与实验过程证据 |
 
-## 4. 证据使用规则
+## 4. 正式续接状态
+
+旧 `.29` 回归资产仍以 `fluka_to_c_translation/` 为规范位置；新 `fort.30` 路线和新几何的执行状态统一查看 `10-handoff/ansys-fluent/`。大型正式 CAD / Workbench / fort.30 文件本身未完整纳入 GitHub，仓库保存的是验证证据、状态和交接说明。
+
+## 5. 证据使用规则
 
 - 论文数值引用回到原始PDF；
 - 程序行为引用代码和自动验证结果；
