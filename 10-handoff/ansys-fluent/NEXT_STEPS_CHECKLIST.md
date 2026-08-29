@@ -2,6 +2,16 @@
 
 > 本清单只描述**下一次接手实际要做的操作**，不是项目综述。
 
+## Gate P0 — 资产预检
+
+- [ ] 找到当前可继续的 CAD / Workbench / Fluent Meshing 工程检查点。
+- [ ] 找到并确认 `target_4collimator001_fort.30` 原始文件。
+- [ ] 找到原工作中验证过的新 RAW30 UDF C 源码，确认包含 `RAW30_ENERGY_SOURCE`。
+- [ ] 若 UDF 源码仍缺失，将其标记为交接资产缺口；不要用旧 `ENERGY_PLAN` 冒充。
+- [ ] 大型外部资产建议补充文件名、日期、状态和 SHA256 manifest。
+
+**P0 未通过时，只能做文档/资产恢复，不进入正式 A4 联调。**
+
 ## Gate B5 — Capping / Region / Volume Mesh
 
 - [ ] 打开当前 Share 后 Fluent Meshing 状态；不要 Update All。
