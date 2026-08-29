@@ -14,6 +14,16 @@
 8. `AI_COLLAB_GUIDE.md` — 与 AI 协作方式。
 9. `GITHUB_WORKFLOW.md` — 仓库管理。
 
+## 先做资产预检
+
+GitHub 当前保存了交接文档和旧 `.29` 回归资产，但**没有完整保存新正式模型的运行资产**。开始操作前先确认工作机/共享工程盘中存在：
+
+1. 当前 Share 后可继续的 CAD / Workbench / Fluent Meshing 工程；
+2. `target_4collimator001_fort.30` 原始文件；
+3. 新 `fort.30` 解析与 `RAW30_ENERGY_SOURCE` 的正式 UDF C 源码。
+
+前两项属于大型工程资产，按仓库策略保存在 GitHub 外；第 3 项是当前仓库审计发现的**代码资产缺口**。如果找不到正式 UDF 源码，不应根据 Markdown 描述直接重写一份并当成原实现。
+
 ## 先看清 A/B 两条线
 
 ```text
